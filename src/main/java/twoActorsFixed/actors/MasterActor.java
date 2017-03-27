@@ -1,10 +1,11 @@
-package twoActors.actors;
+package twoActorsFixed.actors;
 
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.japi.Creator;
 import common.LoggingActor;
-import twoActors.StartWork;
+import supervision.actors.DataWorkerActor;
+import twoActorsFixed.StartWork;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,11 +34,9 @@ public class MasterActor extends LoggingActor{
         }
     }
 
-    private ActorRef worker;
+    final ActorRef worker = getContext().actorOf(WorkerActor.props(), "worker");
 
-    public MasterActor(ActorRef worker) {
-        this.worker = worker;
-    }
+    public MasterActor() {}
 
     public void onReceive(Object o) throws Throwable {
 
@@ -59,10 +58,10 @@ public class MasterActor extends LoggingActor{
 
     }
 
-    public static Props props(final ActorRef worker){
+    public static Props props(){
         return Props.create(new Creator<MasterActor>() {
             public MasterActor create() throws Exception {
-                return new MasterActor(worker);
+                return new MasterActor();
             }
         });
     }

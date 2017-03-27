@@ -31,7 +31,8 @@ public class SupervisorActor extends LoggingActor {
                 10,
                 Duration.create("10 seconds"),
                 DeciderBuilder
-                        .match(Exception.class, ex -> SupervisorStrategy.stop())
+                        .match(Exception.class, ex -> SupervisorStrategy.restart())
+                        .match(RuntimeException.class, ex -> SupervisorStrategy.resume())
                         .build()
         );
     }

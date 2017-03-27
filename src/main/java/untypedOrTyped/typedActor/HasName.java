@@ -1,9 +1,7 @@
 package untypedOrTyped.typedActor;
 
-/**
- * Created by dimamon on 3/24/17.
- */
-interface HasName {
+
+public interface HasName {
 
     String name();
 

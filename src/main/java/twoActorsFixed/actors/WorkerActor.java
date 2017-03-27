@@ -1,4 +1,4 @@
-package twoActors.actors;
+package twoActorsFixed.actors;
 
 import akka.actor.Props;
 import akka.japi.Creator;
@@ -40,10 +40,6 @@ public class WorkerActor extends LoggingActor {
 
     private WorkStatus doWork(MasterActor.Work work){
         log.info("Working on task: " + work.getWorkId());
-
-        //test
-//        if(work.getWorkId() == 2) throw new RuntimeException("Work error");
-
         return new WorkStatus(work.getWorkId(), "DONE");
     }
 
