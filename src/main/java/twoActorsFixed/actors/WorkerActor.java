@@ -23,6 +23,25 @@ public class WorkerActor extends LoggingActor {
         public String getStatus() {
             return status;
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            WorkStatus that = (WorkStatus) o;
+
+            if (workId != that.workId) return false;
+            return status != null ? status.equals(that.status) : that.status == null;
+
+        }
+
+        @Override
+        public int hashCode() {
+            int result = workId;
+            result = 31 * result + (status != null ? status.hashCode() : 0);
+            return result;
+        }
     }
 
     public WorkerActor(){}
@@ -38,7 +57,7 @@ public class WorkerActor extends LoggingActor {
 
     }
 
-    private WorkStatus doWork(MasterActor.Work work){
+    public WorkStatus doWork(MasterActor.Work work){
         log.info("Working on task: " + work.getWorkId());
         return new WorkStatus(work.getWorkId(), "DONE");
     }
