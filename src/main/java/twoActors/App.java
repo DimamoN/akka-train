@@ -5,6 +5,10 @@ import akka.actor.ActorSystem;
 import twoActors.actors.MasterActor;
 import twoActors.actors.WorkerActor;
 
+/**
+ * In this demo Master is not a supervisor of Worker
+ * They are simply two actors who messages each other
+ */
 public class App {
 
     public static void main(String[] args) {

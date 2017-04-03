@@ -8,6 +8,12 @@ import untypedOrTyped.typedActor.HasName;
 import untypedOrTyped.typedActor.Named;
 
 
+/**
+ * For creating typed actor we need:
+ * 1) Interface
+ * 2) Implementation
+ * 3) TypedActor.get(system).typedActorOf( ... )
+ */
 public class App {
 
     public static void main(String[] args) {

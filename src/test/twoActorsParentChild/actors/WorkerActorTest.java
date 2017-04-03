@@ -1,4 +1,4 @@
-package twoActorsFixed.actors;
+package twoActorsParentChild.actors;
 
 import akka.actor.ActorSystem;
 import akka.pattern.Patterns;
@@ -13,6 +13,11 @@ import java.util.Arrays;
 import static org.junit.Assert.*;
 
 
+/**
+ * There are 2 types of testing:
+ * 1) Unit
+ * 2) Integration
+ */
 public class WorkerActorTest {
 
     private ActorSystem system = ActorSystem.create("test");

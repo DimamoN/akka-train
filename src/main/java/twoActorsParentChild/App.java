@@ -1,10 +1,12 @@
-package twoActorsFixed;
+package twoActorsParentChild;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
-import twoActorsFixed.actors.MasterActor;
-import twoActorsFixed.actors.WorkerActor;
+import twoActorsParentChild.actors.MasterActor;
 
+/**
+ * In this demo worker is a child of master actor
+ */
 public class App {
 
     public static void main(String[] args) {

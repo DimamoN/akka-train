@@ -1,4 +1,4 @@
-package twoActorsFixed;
+package twoActorsParentChild;
 
 public class StartWork {
 

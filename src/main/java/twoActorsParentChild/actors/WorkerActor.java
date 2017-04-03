@@ -1,7 +1,6 @@
-package twoActorsFixed.actors;
+package twoActorsParentChild.actors;
 
 import akka.actor.Props;
-import akka.japi.Creator;
 import common.LoggingActor;
 
 public class WorkerActor extends LoggingActor {
@@ -63,11 +62,7 @@ public class WorkerActor extends LoggingActor {
     }
 
     public static Props props(){
-        return Props.create(new Creator<WorkerActor>() {
-            public WorkerActor create() throws Exception {
-                return new WorkerActor();
-            }
-        });
+        return Props.create(WorkerActor.class);
     }
 
 }

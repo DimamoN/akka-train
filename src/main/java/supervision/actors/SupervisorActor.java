@@ -28,11 +28,12 @@ public class SupervisorActor extends LoggingActor {
     @Override
     public SupervisorStrategy supervisorStrategy() {
         return new OneForOneStrategy(
-                10,
+                3,
                 Duration.create("10 seconds"),
                 DeciderBuilder
                         .match(Exception.class, ex -> SupervisorStrategy.restart())
-                        .match(RuntimeException.class, ex -> SupervisorStrategy.resume())
+//                        .match(Exception.class, ex -> SupervisorStrategy.stop())
+//                        .match(Exception.class, ex -> SupervisorStrategy.resume())
                         .build()
         );
     }

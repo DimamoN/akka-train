@@ -9,6 +9,7 @@ public class WorkerActor extends LoggingActor {
 
         if( o instanceof MasterActor.StartWork){
             doStaff();
+
             //Work done, terminating
             getContext().stop(getSelf());
         }

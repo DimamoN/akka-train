@@ -4,6 +4,12 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import supervision.actors.SupervisorActor;
 
+/**
+ * Types of supervisor strategies:
+ * 1 - restart
+ * 2 - stop
+ * 3 - resume
+ */
 public class App {
 
     public static void main(String[] args) {

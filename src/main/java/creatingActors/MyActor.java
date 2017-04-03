@@ -34,5 +34,4 @@ public class MyActor extends LoggingActor {
         });
     }
 
-
 }

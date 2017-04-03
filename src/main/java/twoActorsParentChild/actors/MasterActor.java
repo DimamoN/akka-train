@@ -1,11 +1,9 @@
-package twoActorsFixed.actors;
+package twoActorsParentChild.actors;
 
 import akka.actor.ActorRef;
 import akka.actor.Props;
-import akka.japi.Creator;
 import common.LoggingActor;
-import supervision.actors.DataWorkerActor;
-import twoActorsFixed.StartWork;
+import twoActorsParentChild.StartWork;
 
 import java.util.Arrays;
 import java.util.List;
@@ -34,6 +32,7 @@ public class MasterActor extends LoggingActor{
         }
     }
 
+    //child
     final ActorRef worker = getContext().actorOf(WorkerActor.props(), "worker");
 
     public MasterActor() {}
@@ -59,11 +58,7 @@ public class MasterActor extends LoggingActor{
     }
 
     public static Props props(){
-        return Props.create(new Creator<MasterActor>() {
-            public MasterActor create() throws Exception {
-                return new MasterActor();
-            }
-        });
+       return Props.create(MasterActor.class);
     }
 
 }

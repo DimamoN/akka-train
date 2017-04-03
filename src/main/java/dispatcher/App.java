@@ -7,14 +7,17 @@ import dispatcher.actors.DBActor;
 import dispatcher.actors.OtherActor;
 
 
+/**
+ * Note, that after starting main class, all messages are sent
+ */
 public class App {
 
     public static void main(String[] args) {
 
-        final ActorSystem ac = ActorSystem.create("system");
+        final ActorSystem as = ActorSystem.create("system");
 
-        ActorRef dbActor = ac.actorOf(DBActor.props(), "dbActor");
-        ActorRef otherActor = ac.actorOf(OtherActor.props(), "otherActor");
+        ActorRef dbActor = as.actorOf(DBActor.props(), "dbActor");
+        ActorRef otherActor = as.actorOf(OtherActor.props(), "otherActor");
 
         for (int i = 1; i <= 10; i++) {
             dbActor.tell("Work : " + i, ActorRef.noSender());

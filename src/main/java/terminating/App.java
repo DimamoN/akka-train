@@ -4,6 +4,10 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import terminating.actors.MasterActor;
 
+/**
+ * Master is watching to Workers lifecycle
+ * This mean, than if worker stop -> master will receive TERMINATED message
+ */
 public class App {
 
     public static void main(String[] args) {
@@ -17,5 +21,7 @@ public class App {
         //Check DeadLetterOffice
 //        ac.stop(master);
 //        master.tell(new SupervisorActor.StartWork(),ActorRef.noSender());
+
+        ac.terminate();
     }
 }

@@ -10,6 +10,7 @@ public class MasterActor extends LoggingActor {
     //protocol
     public static class StartWork{}
 
+    //child
     final ActorRef child = getContext().actorOf(WorkerActor.props(),"myChild");
 
     //Subscribe to watch child lifecycle

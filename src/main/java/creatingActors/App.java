@@ -25,6 +25,8 @@ public class App {
 //        as.stop(myActor);
 //        Thread.sleep(1000);
 //        myActor.tell("Yan", ActorRef.noSender());
+
+        as.terminate();
     }
 
 }

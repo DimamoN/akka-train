@@ -3,6 +3,10 @@ package dispatcher.actors;
 import akka.actor.Props;
 import common.LoggingActor;
 
+/**
+ * This is blocking actor
+ * Good practice is to isolate blocking actors with single "blocking" dispatchers
+ */
 public class DBActor extends LoggingActor {
 
     @Override
@@ -10,7 +14,7 @@ public class DBActor extends LoggingActor {
 
         if(o instanceof String){
             log.info("working with db " + o);
-            Thread.sleep(5000);
+            Thread.sleep(2000);
         }
 
     }
